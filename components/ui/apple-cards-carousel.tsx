@@ -277,21 +277,21 @@ export const BlurImage = ({
 }: ImageProps) => {
   const [isLoading, setLoading] = useState(true);
   return (
-    <img
-      className={cn(
-        "h-full w-full transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
-        className,
-      )}
-      onLoad={() => setLoading(false)}
-      src={src as string}
-      width={width}
-      height={height}
-      loading="lazy"
-      decoding="async"
-      blurDataURL={typeof src === "string" ? src : undefined}
-      alt={alt ? alt : "Background of a beautiful view"}
-      {...rest}
-    />
+   <Image
+  className={cn(
+     "h-full w-full transition duration-300",
+    isLoading ? "blur-sm" : "blur-0",
+    className
+  )}
+  onLoad={() => setLoading(false)}
+  src={src as string}
+  width={width}
+  height={height}
+  loading="lazy"
+  decoding="async"
+  alt={alt || "Background image"}
+  {...rest}
+/>
+
   );
 };
